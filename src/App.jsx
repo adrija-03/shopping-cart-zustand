@@ -7,23 +7,22 @@ import { useState } from 'react';
 function App() {
   const [showCart, setShowCart] = useState(false);
 
-  console.log(showCart)
-
-  // function handleCart() {
-  //   setShowCart(prev => !prev)
-  // }
+  function closeCart() {
+    setShowCart(false)
+  }
   function openCart() {
     setShowCart(true)
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 p-6 text-white">
-      <Navbar manageCart={openCart}/>
+    <div className="relative min-h-screen bg-black text-white selection:bg-emerald-500 selection:text-black">
+      <Navbar manageCart={openCart} />
 
-      <main className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <main className="w-full py-6">
         <ProductList />
-        {showCart && <Cart />}
       </main>
+
+      <Cart isOpen={showCart} onClose={closeCart} />
     </div>
   );
 }

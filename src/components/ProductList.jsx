@@ -28,35 +28,38 @@ function ProductList() {
         return <p>{error}</p>;
 
     return (
-        <section className="min-h-screen bg-black px-4 py-8 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-7xl">
+        <section className="min-h-screen w-full bg-black px-4 py-8 sm:px-8 lg:px-12 overflow-x-hidden">
+            {/* --- Full Width Container (No max-w restriction) --- */}
+            <div className="w-full">
 
-                <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between border-b border-zinc-800 pb-5">
+                {/* --- Page Header --- */}
+                <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between border-b border-zinc-800/80 pb-5">
                     <div>
-                        <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                        <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
                             Featured Products
                         </h1>
                         <p className="mt-1 text-sm text-zinc-400">
                             Explore our curated collection of premium products.
                         </p>
                     </div>
-
-                    {!loading && !error && (
-                        <span className="text-xs font-medium text-zinc-500">
-                            Showing {productList.length} products
-                        </span>
-                    )}
                 </div>
 
                 {/* --- Empty State --- */}
                 {!loading && !error && productList.length === 0 && (
-                    <div className="my-16 text-center text-zinc-500">
-                        No products found.
+                    <div className="my-24 flex flex-col items-center justify-center text-center">
+                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-zinc-900 text-zinc-500 mb-4">
+                            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                            </svg>
+                        </div>
+                        <p className="text-base font-medium text-zinc-400">No products found</p>
+                        <p className="mt-1 text-xs text-zinc-600">Check back later or try clearing filters.</p>
                     </div>
                 )}
 
+                {/* --- Full Width Dynamic Grid --- */}
                 {!loading && !error && productList.length > 0 && (
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
                         {productList.map((product) => (
                             <ProductCard key={product.id} product={product} />
                         ))}
