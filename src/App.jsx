@@ -1,5 +1,6 @@
 import './App.css'
 import ProductList from './components/ProductList';
+import Navbar from './components/Navbar';
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <div>
       <span>Zustand</span>
       <ProductList/>
+      <Navbar/>
     </div>
   )
 }

@@ -24,7 +24,10 @@ function ProductCard({ product }) {
             <div className="flex items-start justify-between">
                 <div className="flex gap-4">
                     <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl bg-white p-2">
-                        <img src={product.thumbnail} className="h-full w-full object-contain" />
+                        <img 
+                        src={product.thumbnail} 
+                        alt={product.title}
+                        className="h-full w-full object-contain" />
                     </div>
                     <div className="flex flex-col justify-between py-0.5">
                         <div>
