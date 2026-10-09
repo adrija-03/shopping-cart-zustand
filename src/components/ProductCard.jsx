@@ -12,7 +12,7 @@ return (
       <div className="relative aspect-square w-full overflow-hidden bg-zinc-900/50 p-6 flex items-center justify-center">
 
         {/* Wishlist Button */}
-        <button
+        {/* <button
           type="button"
           aria-label="Add to wishlist"
           className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-zinc-800 bg-zinc-950/80 text-zinc-400 backdrop-blur-md transition-colors hover:border-zinc-700 hover:text-rose-500"
@@ -20,9 +20,8 @@ return (
           <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
           </svg>
-        </button>
+        </button> */}
 
-        {/* Product Thumbnail */}
         <img
           src={product.thumbnail}
           alt={product.title}
@@ -30,16 +29,14 @@ return (
         />
       </div>
 
-      {/* --- Content Section --- */}
       <div className="flex flex-1 flex-col justify-between p-5">
         <div>
-          {/* Category & Rating Row */}
+          
           <div className="mb-1.5 flex items-center justify-between text-xs text-zinc-400">
             <span className="uppercase tracking-wider text-zinc-500 font-medium">
               {product.category || "General"}
             </span>
             
-            {/* Rating Indicator */}
             {product.rating && (
               <div className="flex items-center gap-1 text-amber-400">
                 <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 20 20">
@@ -50,27 +47,18 @@ return (
             )}
           </div>
 
-          {/* Title */}
           <h3 className="line-clamp-2 text-base font-semibold text-zinc-100 group-hover:text-white">
             {product.title}
           </h3>
         </div>
 
-        {/* Pricing and Action Button */}
         <div className="mt-4 pt-3 border-t border-zinc-800/60 flex flex-col gap-3">
           <div className="flex items-baseline gap-2">
             <span className="text-xl font-bold text-white">
               ₹{product.price}
             </span>
-            {/* Optional Strikethrough Price if discount exists */}
-            {product.originalPrice && (
-              <span className="text-xs text-zinc-500 line-through">
-                ₹{product.originalPrice}
-              </span>
-            )}
           </div>
 
-          {/* Add to Cart Button */}
           <button
             onClick={() => increaseQuantity(product)}
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-black transition-all hover:bg-zinc-200 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-white/20"
@@ -80,6 +68,7 @@ return (
             </svg>
             Add to cart
           </button>
+
         </div>
       </div>
 
