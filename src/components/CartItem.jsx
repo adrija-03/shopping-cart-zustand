@@ -1,10 +1,10 @@
 import { useCartStore } from "../store/useCartStore";
 
 function CartItem({ item }) {
+    
 const increaseQuantity = useCartStore(
 (state) => state.increaseQuantity
 );
-
 
 const decreaseQuantity = useCartStore(
     (state) => state.decreaseQuantity
@@ -33,6 +33,7 @@ return (
                 <div className="mt-2 flex items-center gap-3">
                     <button
                         onClick={() => decreaseQuantity(item.id)}
+                        className="flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-800 text-zinc-400 transition hover:border-zinc-700 hover:text-white"
                     >
                         -
                     </button>
@@ -41,6 +42,7 @@ return (
 
                     <button
                         onClick={() => increaseQuantity(item)}
+                        className="flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-800 text-zinc-400 transition hover:border-zinc-700 hover:text-white"
                     >
                         +
                     </button>
